@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">CRUD Todos</h1>
+      <div class="d-flex justify-content-end">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-tambah"
+        >
+          Tambah
+        </button>
+      </div>
+      <div class="container my-5">
+        <table id="example" class="table table-striped w-100">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Todos Title</th>
+              <th>Todos Status</th>
+              <th>Post Title</th>
+              <th>Post Text</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal Tambah -->
+    <div
+      class="modal fade"
+      id="modal-tambah"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="todosTitle" class="form-label">Todos Title</label>
+              <input type="text" class="form-control" id="todosTitle" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="todosStatus" class="form-label">Todos Status</label>
+              <select class="form-select" id="todosStatus">
+                <option value="finished">Finished</option>
+                <option value="not_finished">Not Finished</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="postTitle" class="form-label">Post Title</label>
+              <input type="text" class="form-control" id="postTitle" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="postText" class="form-label">Post Text</label>
+              <input type="text" class="form-control" id="postText" autocomplete="off" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary" id="btn-add-data">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div
+      class="modal fade"
+      id="modal-edit"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name-edit" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="todosTitle" class="form-label">Todos Title</label>
+              <input type="text" class="form-control" id="todosTitle-edit" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="todosStatus-edit" class="form-label">Todos Status</label>
+              <select class="form-select" id="todosStatus-edit">
+                <option value="finished">Finished</option>
+                <option value="not_finished">Not Finished</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="postTitle" class="form-label">Post Title</label>
+              <input type="text" class="form-control" id="postTitle-edit" autocomplete="off" />
+            </div>
+            <div class="mb-3">
+              <label for="postText" class="form-label">Post Text</label>
+              <input type="text" class="form-control" id="postText-edit" autocomplete="off" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary" id="btn-edit-data">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>

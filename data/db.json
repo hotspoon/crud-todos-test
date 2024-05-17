@@ -1,0 +1,62 @@
+{
+  "data": [
+    {
+      "name": "John Doe",
+      "todosTitle": "Buy groceries",
+      "todosStatus": "finished",
+      "postTitle": "Grocery Shopping List",
+      "postText": "Milk, bread, eggs, apples, bananas",
+      "id": 1
+    },
+    {
+      "name": "Faris 123",
+      "todosTitle": "Buy Some Food",
+      "todosStatus": "not_finished",
+      "postTitle": "Grocery Shopping List",
+      "postText": "Milk, bread, eggs, apples, bananas",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "hashed_password"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "title": "Buy groceries",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "title": "Finish coding project",
+      "completed": true
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Grocery Shopping List",
+      "body": "Milk, bread, eggs, apples, bananas",
+      "todosid": 1
+    },
+    {
+      "id": 2,
+      "title": "Project Completion Update",
+      "body": "Successfully completed the core functionality! Moving on to bug fixing and testing.",
+      "todosid": 2
+    },
+    {
+      "id": 3,
+      "title": "Random Thought",
+      "body": "Just had a great idea for a new feature in the app...",
+      "todosid": null
+    }
+  ]
+}
